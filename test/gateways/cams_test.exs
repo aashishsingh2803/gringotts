@@ -57,7 +57,9 @@ defmodule Gringotts.Gateways.CamsTest do
   @bad_authorization "some_fake_transaction_id"
 
   setup_all do
-    Application.put_env(:gringotts, Gateway,
+    Application.put_env(
+      :gringotts,
+      Gateway,
       username: "some_secret_user_name",
       password: "some_secret_password"
     )
@@ -85,7 +87,9 @@ defmodule Gringotts.Gateways.CamsTest do
     test "with invalid currency" do
       with_mock HTTPoison,
         post: fn _url, _body, _headers -> MockResponse.with_invalid_currency() end do
-        {:ok, %Response{message: result}} = Gringotts.purchase(Gateway, @bad_currency, @card, @options)
+        {:ok, %Response{message: result}} =
+          Gringotts.purchase(Gateway, @bad_currency, @card, @options)
+
         assert String.contains?(result, "The cc payment type")
       end
     end

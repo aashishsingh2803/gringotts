@@ -1,8 +1,8 @@
 defmodule Gringotts.Gateways.StripeTest do
-
   use ExUnit.Case
 
   alias Gringotts.Gateways.Stripe
+
   alias Gringotts.{
     CreditCard,
     Address
@@ -53,6 +53,5 @@ defmodule Gringotts.Gateways.StripeTest do
 
     #   assert Map.has_key?(response, "error")
     # end
-
   end
 end

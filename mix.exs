@@ -17,14 +17,15 @@ defmodule Gringotts.Mixfile do
         tool: ExCoveralls
       ],
       preferred_cli_env: [
-        "coveralls": :test,
+        coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test,
         "coveralls.travis": :test
       ],
       deps: deps(),
-      docs: docs()]
+      docs: docs()
+    ]
   end
 
   # Configuration for the OTP application
@@ -32,7 +33,7 @@ defmodule Gringotts.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [
-      applications: [:httpoison, :hackney, :elixir_xml_to_map, :timex],
+      applications: [:httpoison, :hackney, :elixir_xml_to_map, :timex]
     ]
   end
 
@@ -89,8 +90,8 @@ defmodule Gringotts.Mixfile do
   end
 
   defp groups_for_modules do
-     [
-      "Gateways": ~r/^Gringotts.Gateways.?/,
-     ]
+    [
+      Gateways: ~r/^Gringotts.Gateways.?/
+    ]
   end
 end
